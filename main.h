@@ -25,7 +25,8 @@ int print_string(va_list list, char buffer[]);
 int print_percent(va_list list, char buffer[]);
 int print_int(va_list list, char buffer[]);
 int print_binary(va_list list, char buffer[]);
-
+/****formats2****/
+int print_pointer(va_list list, char buffer[]);
 /****custom****/
 int print_reverse(va_list list, char buffer[]);
 int print_rot13(va_list list, char buffer[]);

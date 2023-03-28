@@ -13,8 +13,8 @@ int handle_print(const char *fmt, int *i, va_list list, char buffer[])
 	fmt_t fmt_set[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
-		{'S', print_unprintable}, {'r', print_reverse}, {'R', print_rot13},
-		{'\0', NULL}
+		{'p', print_pointer}, {'S', print_unprintable}, {'r', print_reverse},
+		{'R', print_rot13}, {'\0', NULL}
 	};
 	for (j = 0; fmt_set[j].fmt != '\0'; j++)
 		if (fmt[*i] == fmt_set[j].fmt)
