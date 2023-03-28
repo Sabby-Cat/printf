@@ -29,5 +29,7 @@ int print_binary(va_list list, char buffer[]);
 /****custom****/
 int print_reverse(va_list list, char buffer[]);
 int print_rot13(va_list list, char buffer[]);
+int print_unprintable(va_list list, char buffer[]);
+int add_hex(char c, char buffer[], int i);
 
 #endif

@@ -32,7 +32,7 @@ int print_reverse(va_list list, char buffer[])
  */
 int print_rot13(va_list list, char buffer[])
 {
-	int i, j, c;
+	int i, j, c = 0;
 	char *ret = va_arg(list, char *), tmp;
 	char r[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char o[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -60,4 +60,50 @@ int print_rot13(va_list list, char buffer[])
 		}
 	}
 	return (c);
+}
+/**
+ * print_unprintable - prints a string with unprinables added as \xhh
+ * @list: list
+ * @buffer: array
+ * Return: nr printed
+ */
+int print_unprintable(va_list list, char buffer[])
+{
+	int i, o = 0;
+	char *ret = va_arg(list, char *);
+
+	if (ret == NULL)
+		return (write(1, "(null)", 6));
+	for (i = 0; ret[i] != '\0'; i++)
+	{
+		if (ret[i] >= 32 && ret[i] < 127)
+			buffer[i + o] = ret[i];
+		else
+			o = add_hex(ret[i], buffer, i + o);
+	}
+	buffer[i + o] = '\0';
+	return (write(1, buffer, i + o));
+}
+
+/**
+ * add_hex - adds 2 dig hex code
+ * @c: char
+ * @buffer: array
+ * @i: position
+ * Return: nr printed
+ */
+int add_hex(char c, char buffer[], int i)
+{
+	char map_to[] = "0123456789ABCDEF";
+
+	if (c < 0)
+		c *= -1;
+
+	buffer[i++] = '\\';
+	buffer[i++] = 'x';
+
+	buffer[i++] = map_to[c / 16];
+	buffer[i] = map_to[c % 16];
+
+	return (3);
 }
