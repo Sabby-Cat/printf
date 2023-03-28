@@ -13,7 +13,7 @@ int print_pointer(va_list list, char buffer[])
 	void *addrs = va_arg(list, void *);
 
 	if (addrs == NULL)
-		return (write(1, "(null)", 6));
+		return (write(1, "(nil)", 5));
 
 	buffer[B_SIZE - 1] = '\0';
 
