@@ -23,6 +23,7 @@ int handle_print(const char *fmt, int *i, va_list list, char buffer[])
 	{
 		if (fmt[*i] == '\0')
 			return (-1);
+		len += write(1, "%%", 1);
 		if (fmt[*i - 1] == ' ')
 			len += write(1, " ", 1);
 		len +=  write(1, &fmt[*i], 1);
