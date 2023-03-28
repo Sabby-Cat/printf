@@ -79,7 +79,7 @@ int print_unprintable(va_list list, char buffer[])
 		if (ret[i] >= 32 && ret[i] < 127)
 			buffer[i + o] = ret[i];
 		else
-			o = add_hex(ret[i], buffer, i + o);
+			o += add_hex(ret[i], buffer, i + o);
 	}
 	buffer[i + o] = '\0';
 	return (write(1, buffer, i + o));

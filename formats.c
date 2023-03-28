@@ -55,8 +55,8 @@ int print_percent(va_list list, char buffer[])
  */
 int print_int(va_list list, char buffer[])
 {
-	int n = va_arg(list, int);
-	int num;
+	int long n = va_arg(list, long int);
+	unsigned long int num;
 	int i = B_SIZE - 2, c = 0;
 	int is_neg = 0;
 
@@ -64,12 +64,12 @@ int print_int(va_list list, char buffer[])
 		buffer[i--] = '0';
 
 	buffer[B_SIZE - 1] = '\0';
+	num = labs(n);
 	if (n < 0)
 	{
-		n = abs(n);
+		num = labs(n);
 		is_neg = 1;
 	}
-	num = labs(n);
 
 	while (num > 0)
 	{
