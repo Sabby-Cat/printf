@@ -24,9 +24,10 @@ int print_char(va_list list, char buffer[])
  */
 int print_string(va_list list, char buffer[])
 {
-	int len = 0, i;
+	int len = 0;
 	char *ret = va_arg(list, char *);
 
+	UNUSED(buffer);
 	if (ret == NULL)
 		ret = "(null)";
 	len = strlen(ret);
@@ -41,6 +42,8 @@ int print_string(va_list list, char buffer[])
  */
 int print_percent(va_list list, char buffer[])
 {
+	UNUSED(list);
+	UNUSED(buffer);
 	return (write(1, "%%", 1));
 }
 
@@ -63,7 +66,7 @@ int print_int(va_list list, char buffer[])
 	buffer[B_SIZE - 1] = '\0';
 	if (n < 0)
 	{
-		n = abs(n);
+		n = labs(n);
 		is_neg = 1;
 	}
 	num = n;
@@ -93,6 +96,7 @@ int print_binary(va_list list, char buffer[])
 	unsigned int a[32];
 	int count = 0;
 
+	UNUSED(buffer);
 	n = va_arg(list, unsigned int);
 	p = 2147483648;
 	a[0] = n / p;

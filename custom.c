@@ -7,10 +7,11 @@
  */
 int print_reverse(va_list list, char buffer[])
 {
-	int len = 0, i, c;
+	int i, c;
 	char *ret = va_arg(list, char *);
 	char tmp;
 
+	UNUSED(buffer);
 	i = strlen(ret) - 1;
 	if (ret == NULL)
 		ret = "(null)";
@@ -31,11 +32,12 @@ int print_reverse(va_list list, char buffer[])
  */
 int print_rot13(va_list list, char buffer[])
 {
-	int len = 0, i, j, c;
+	int i, j, c;
 	char *ret = va_arg(list, char *), tmp;
 	char r[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char o[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+	UNUSED(buffer);
 	if (ret == NULL)
 		ret = "(null)";
 	for (i = 0; ret[i] != '\0'; i++)

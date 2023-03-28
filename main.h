@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 
+#define UNUSED(x) (void)(x)
 #define B_SIZE 1024
 /**
  * struct fmt - create struct
