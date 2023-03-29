@@ -37,7 +37,6 @@ int print_octal(va_list list, char buffer[])
 {
 	int i = B_SIZE - 2, c;
 	unsigned long int num = va_arg(list, unsigned long int);
-	unsigned long int on = num;
 
 	if (num == 0)
 		buffer[i--] = '0';
@@ -86,7 +85,6 @@ int print_hexadecimal(va_list list, char map_to[], char buffer[])
 {
 	int i = B_SIZE - 2, c;
 	unsigned long int num = va_arg(list, unsigned long int);
-	unsigned long int on = num;
 
 	if (num == 0)
 		buffer[i--] = '0';
