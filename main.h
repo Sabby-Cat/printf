@@ -19,14 +19,24 @@ typedef struct fmt
 
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i, va_list list, char buffer[]);
+
 /****formats****/
 int print_char(va_list list, char buffer[]);
 int print_string(va_list list, char buffer[]);
 int print_percent(va_list list, char buffer[]);
 int print_int(va_list list, char buffer[]);
 int print_binary(va_list list, char buffer[]);
+
+/****formats1****/
+int print_unsigned(va_list list, char buffer[]);
+int print_octal(va_list list, char buffer[]);
+int print_upper_hex(va_list list, char buffer[]);
+int print_lower_hex(va_list list, char buffer[]);
+int print_hexadecimal(va_list list, char map_to[], char buffer[]);
+
 /****formats2****/
 int print_pointer(va_list list, char buffer[]);
+
 /****custom****/
 int print_reverse(va_list list, char buffer[]);
 int print_rot13(va_list list, char buffer[]);
