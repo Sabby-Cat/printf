@@ -35,7 +35,7 @@ int print_unsigned(va_list list, char buffer[])
 int print_octal(va_list list, char buffer[])
 {
 	int i = B_SIZE - 2, c;
-	unsigned long int num = va_arg(list, unsigned long int);
+	unsigned int num = va_arg(list, unsigned int);
 
 	if (num == 0)
 		buffer[i--] = '0';
@@ -83,7 +83,7 @@ int print_lower_hex(va_list list, char buffer[])
 int print_hexadecimal(va_list list, char map_to[], char buffer[])
 {
 	int i = B_SIZE - 2, c;
-	unsigned long int num = va_arg(list, unsigned long int);
+	unsigned int num = va_arg(list, unsigned int);
 
 	if (num == 0)
 		buffer[i--] = '0';
